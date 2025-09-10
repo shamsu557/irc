@@ -8,9 +8,9 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
         :root {
-            --primary-color: #004d40; /* Dark Teal */
-            --secondary-color: #2f4f4f; /* Dark Slate Gray */
-            --light-color: #f0f8f0; /* Honeydew */
+            --primary-color: #004d40;
+            --secondary-color: #2f4f4f;
+            --light-color: #f0f8f0;
             --white-color: #ffffff;
         }
 
@@ -21,7 +21,6 @@
             scroll-behavior: smooth;
         }
 
-        /* Navbar Styling */
         .navbar {
             background-color: var(--white-color);
             box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
@@ -35,6 +34,11 @@
         }
         .navbar-brand:hover {
             color: #00695c !important;
+        }
+        .navbar-brand img {
+            height: 40px; /* Adjust height as needed */
+            width: auto;
+            vertical-align: middle;
         }
         .nav-link {
             color: var(--secondary-color) !important;
@@ -61,18 +65,17 @@
             transition: transform 0.3s ease;
         }
         .navbar-toggler-icon::before {
-            content: "\f0c9"; /* FontAwesome bars icon */
+            content: "\f0c9";
             font-family: "Font Awesome 6 Free";
             font-weight: 900;
         }
         .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
-            content: "\f00d"; /* FontAwesome times icon */
+            content: "\f00d";
         }
         .navbar-collapse {
             justify-content: flex-end;
         }
 
-        /* Hero Section Styling */
         .hero-section {
             padding: 4rem 0;
             background-color: var(--primary-color);
@@ -80,7 +83,7 @@
             position: relative;
             overflow: hidden;
             text-align: center;
-            height: 400px; /* Reduced height */
+            height: 400px;
         }
         .hero-section::after {
             content: '';
@@ -131,7 +134,6 @@
             transform: translateY(0);
         }
 
-        /* Custom portal card styling */
         .portal-card {
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             text-decoration: none;
@@ -142,7 +144,6 @@
             box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
         }
 
-        /* Fade-up effect */
         .fade-up {
             opacity: 0;
             transform: translateY(20px);
@@ -153,13 +154,11 @@
             transform: translateY(0);
         }
 
-        /* Gallery and media styling to prevent download */
         .view-only-media img,
         .view-only-media video {
             pointer-events: none;
         }
 
-        /* Footer styling */
         footer a {
             color: rgba(255, 255, 255, 0.75);
             text-decoration: none;
@@ -168,10 +167,22 @@
             color: var(--white-color);
         }
 
-        /* Responsive adjustments */
+        /* Form Icon Styling */
+        .input-group-text {
+            background-color: var(--light-color);
+            border: 1px solid #ced4da;
+            color: var(--primary-color);
+        }
+        .form-label-optional::after {
+            content: " (Optional)";
+            font-size: 0.85rem;
+            color: var(--secondary-color);
+            font-style: italic;
+        }
+
         @media (max-width: 768px) {
             .hero-section {
-                height: 300px; /* Further reduced for mobile */
+                height: 300px;
                 padding: 2rem 0;
             }
             .hero-text h1 {
@@ -183,6 +194,9 @@
             .navbar-nav {
                 text-align: center;
             }
+            .navbar-brand img {
+                height: 40px; /* Smaller logo for mobile */
+            }
         }
     </style>
 </head>
@@ -190,7 +204,9 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
         <div class="container">
-            <a class="navbar-brand" href="#">IRC</a>
+            <a class="navbar-brand" href="#">
+                <img src="assets/images/logo.png" alt="Ibadurrahman College Logo">
+            </a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
             </button>
@@ -293,55 +309,84 @@
         </div>
     </section>
 
-    <section id="announcements" class="py-5 bg-white">
-        <div class="container fade-up">
-            <h2 class="text-center mb-4">Announcements</h2>
-            <div class="card p-4 shadow-sm">
-                <p class="mb-0 text-muted"><strong>[Date] - Important Notice:</strong> This is a sample announcement for important tips and updates. Check back regularly!</p>
+  <section id="announcements" class="py-5 bg-white">
+    <div class="container fade-up">
+        <h2 class="text-center mb-4">Announcements</h2>
+        <div class="card p-4 shadow-sm">
+            <p class="mb-0 text-muted"><strong>September 10, 2025 - Important Notice:</strong> Ibadurrahman College is excited to announce new initiatives to enhance our educational programs. Additionally, the results for the ongoing Qur'an memorizers will be released soon. Stay tuned for more updates!</p>
+        </div>
+    </div>
+</section>
+    <section id="admission" class="py-5">
+    <div class="container fade-up">
+        <h2 class="text-center mb-4">Book for Tahfiz Admission (Halqatu Ibadurrahman)</h2>
+        <div class="row justify-content-center">
+            <div class="col-lg-8">
+                <div class="alert alert-info text-center mb-4" role="alert">
+                    <strong>Important:</strong> Admissions are processed on a first-come, first-served basis. The next admission period begins in December 2025.
+                </div>
+                <form class="p-4 rounded shadow-sm bg-white" action="/api/bookings" method="POST">
+                    <div class="mb-3">
+                        <label for="name" class="form-label">Candidate Name</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-user"></i></span>
+                            <input type="text" class="form-control" id="name" name="name" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="email" class="form-label form-label-optional">Your Email</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-envelope"></i></span>
+                            <input type="email" class="form-control" id="email" name="email">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="gender" class="form-label">Gender</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-venus-mars"></i></span>
+                            <select class="form-control" id="gender" name="gender" required>
+                                <option value="" disabled selected>Select Gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                            </select>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="date_of_birth" class="form-label">Date of Birth</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-calendar-alt"></i></span>
+                            <input type="date" class="form-control" id="date_of_birth" name="date_of_birth" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="phone" class="form-label">Parent or Guardian Contact</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-phone"></i></span>
+                            <input type="tel" class="form-control" id="phone" name="phone" required>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="address" class="form-label">Address</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-map-marker-alt"></i></span>
+                            <textarea class="form-control" id="address" name="address" rows="3" required></textarea>
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="message" class="form-label form-label-optional">Your Message</label>
+                        <div class="input-group">
+                            <span class="input-group-text"><i class="fas fa-comment"></i></span>
+                            <textarea class="form-control" id="message" name="message" rows="4"></textarea>
+                        </div>
+                    </div>
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-primary">Submit</button>
+                    </div>
+                </form>
             </div>
         </div>
-    </section>
-
-   <section id="admission" class="py-5">
-  <div class="container fade-up">
-    <h2 class="text-center mb-4">Book Tahfiz for Admission (Halqatu Ibadurrahman)</h2>
-    <div class="row justify-content-center">
-      <div class="col-lg-8">
-        <form class="p-4 rounded shadow-sm bg-white">
-          
-          <div class="mb-3">
-            <label for="name" class="form-label">Your Name</label>
-            <input type="text" class="form-control" id="name" required>
-          </div>
-
-          <div class="mb-3">
-            <label for="email" class="form-label">Your Email</label>
-            <input type="email" class="form-control" id="email" required>
-          </div>
-
-          <div class="mb-3">
-            <label for="phone" class="form-label">Your Phone Number</label>
-            <input type="tel" class="form-control" id="phone" required>
-          </div>
-
-          <div class="mb-3">
-            <label for="address" class="form-label">Your Address</label>
-            <input type="text" class="form-control" id="address" required>
-          </div>
-
-          <div class="mb-3">
-            <label for="message" class="form-label">Your Message</label>
-            <textarea class="form-control" id="message" rows="4"></textarea>
-          </div>
-
-          <button type="submit" class="btn btn-primary w-100">Submit</button>
-        </form>
-      </div>
     </div>
-  </div>
 </section>
-
-
     <footer id="contact" class="bg-dark text-white py-5">
         <div class="container">
             <div class="row g-4">
@@ -378,77 +423,105 @@
     <a href="#" id="back-to-top" class="btn btn-primary rounded-circle" style="display: none; position: fixed; bottom: 20px; right: 20px;"><i class="fas fa-arrow-up"></i></a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Hero Slideshow
-            const slides = document.querySelectorAll('.hero-slide');
-            const texts = document.querySelectorAll('.hero-text');
-            let currentSlide = 0;
+<script>
+    document.addEventListener('DOMContentLoaded', () => {
+        // Hero Slideshow
+        const slides = document.querySelectorAll('.hero-slide');
+        const texts = document.querySelectorAll('.hero-text');
+        let currentSlide = 0;
 
-            function showSlide(index) {
-                slides.forEach((slide, i) => {
-                    slide.classList.toggle('active', i === index);
-                });
-                texts.forEach((text, i) => {
-                    text.classList.toggle('active', i === index);
-                });
-            }
+        function showSlide(index) {
+            slides.forEach((slide, i) => {
+                slide.classList.toggle('active', i === index);
+            });
+            texts.forEach((text, i) => {
+                text.classList.toggle('active', i === index);
+            });
+        }
 
-            function nextSlide() {
-                currentSlide = (currentSlide + 1) % slides.length;
-                showSlide(currentSlide);
-            }
-
-            // Initialize first slide
+        function nextSlide() {
+            currentSlide = (currentSlide + 1) % slides.length;
             showSlide(currentSlide);
+        }
 
-            // Change slide every 5 seconds
-            setInterval(nextSlide, 5000);
+        showSlide(currentSlide);
+        setInterval(nextSlide, 5000);
 
-            // Fade-up effect on scroll
-            const observerOptions = {
-                rootMargin: '0px',
-                threshold: 0.1
-            };
-            const fadeUpObserver = new IntersectionObserver((entries) => {
-                entries.forEach(entry => {
-                    if (entry.isIntersecting) {
-                        entry.target.classList.add('visible');
-                        fadeUpObserver.unobserve(entry.target);
-                    }
-                });
-            }, observerOptions);
-            document.querySelectorAll('.fade-up').forEach(el => fadeUpObserver.observe(el));
-
-            // Back to Top button
-            const backToTopBtn = document.getElementById('back-to-top');
-            window.addEventListener('scroll', () => {
-                if (window.scrollY > 300) {
-                    backToTopBtn.style.display = 'block';
-                } else {
-                    backToTopBtn.style.display = 'none';
+        // Fade-up effect on scroll
+        const observerOptions = {
+            rootMargin: '0px',
+            threshold: 0.1
+        };
+        const fadeUpObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    fadeUpObserver.unobserve(entry.target);
                 }
             });
-            backToTopBtn.addEventListener('click', (e) => {
-                e.preventDefault();
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-            });
+        }, observerOptions);
+        document.querySelectorAll('.fade-up').forEach(el => fadeUpObserver.observe(el));
 
-            // Auto-collapse navbar on link click
-            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-            const navbarCollapse = document.getElementById('navbarNav');
+        // Back to Top button
+        const backToTopBtn = document.getElementById('back-to-top');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 300) {
+                backToTopBtn.style.display = 'block';
+            } else {
+                backToTopBtn.style.display = 'none';
+            }
+        });
+        backToTopBtn.addEventListener('click', (e) => {
+            e.preventDefault();
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        });
 
-            navLinks.forEach(link => {
-                link.addEventListener('click', () => {
-                    if (navbarCollapse.classList.contains('show')) {
-                        const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
-                            toggle: false
-                        });
-                        bsCollapse.hide();
-                    }
-                });
+        // Auto-collapse navbar on link click
+        const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+        const navbarCollapse = document.getElementById('navbarNav');
+
+        navLinks.forEach(link => {
+            link.addEventListener('click', () => {
+                if (navbarCollapse.classList.contains('show')) {
+                    const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                        toggle: false
+                    });
+                    bsCollapse.hide();
+                }
             });
         });
-    </script>
+
+        // Handle form submission
+        document.querySelector('form').addEventListener('submit', async (e) => {
+            e.preventDefault(); // Prevent default form submission
+
+            const form = e.target;
+            const formData = new FormData(form);
+            const data = Object.fromEntries(formData);
+
+            try {
+                const response = await fetch('/api/bookings', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    },
+                    body: JSON.stringify(data),
+                });
+
+                const result = await response.json();
+
+                if (result.success) {
+                    alert(result.message); // Show success alert
+                    form.reset(); // Reset the form after successful submission
+                } else {
+                    alert('Error: ' + result.message); // Show error alert
+                }
+            } catch (error) {
+                console.error('Error submitting form:', error);
+                alert('An error occurred while submitting the form. Please try again.');
+            }
+        });
+    });
+</script>
 </body>
 </html>
