@@ -1,1 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ibadurrahman College</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #004d40; /* Dark Teal */
+            --secondary-color: #2f4f4f; /* Dark Slate Gray */
+            --light-color: #f0f8f0; /* Honeydew */
+            --white-color: #ffffff;
+        }
 
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+            background-color: var(--light-color);
+            color: var(--secondary-color);
+            scroll-behavior: smooth;
+        }
+
+        /* Navbar Styling */
+        .navbar {
+            background-color: var(--white-color);
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            padding: 1rem 0;
+        }
+        .navbar-brand {
+            font-weight: 700;
+            font-size: 1.8rem;
+            color: var(--primary-color) !important;
+            transition: color 0.3s ease;
+        }
+        .navbar-brand:hover {
+            color: #00695c !important;
+        }
+        .nav-link {
+            color: var(--secondary-color) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem;
+            transition: color 0.3s ease, background-color 0.3s ease;
+            border-radius: 5px;
+        }
+        .nav-link:hover {
+            color: var(--primary-color) !important;
+            background-color: rgba(0, 77, 64, 0.1);
+        }
+        .navbar-toggler {
+            border: none;
+            padding: 0.5rem;
+        }
+        .navbar-toggler:focus {
+            box-shadow: none;
+        }
+        .navbar-toggler-icon {
+            background-image: none;
+            font-size: 1.5rem;
+            color: var(--primary-color);
+            transition: transform 0.3s ease;
+        }
+        .navbar-toggler-icon::before {
+            content: "\f0c9"; /* FontAwesome bars icon */
+            font-family: "Font Awesome 6 Free";
+            font-weight: 900;
+        }
+        .navbar-toggler[aria-expanded="true"] .navbar-toggler-icon::before {
+            content: "\f00d"; /* FontAwesome times icon */
+        }
+        .navbar-collapse {
+            justify-content: flex-end;
+        }
+
+        /* Hero Section Styling */
+        .hero-section {
+            padding: 4rem 0;
+            background-color: var(--primary-color);
+            color: var(--white-color);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+            height: 600px; /* Reduced height */
+        }
+        .hero-section::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, 0.4);
+            z-index: 1;
+        }
+        .hero-content {
+            position: relative;
+            z-index: 2;
+        }
+        .hero-slideshow {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+        .hero-slide {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            transition: opacity 1s ease-in-out;
+        }
+        .hero-slide.active {
+            opacity: 1;
+        }
+        .hero-slide img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        .hero-text {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .hero-text.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Custom portal card styling */
+        .portal-card {
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+        .portal-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+
+        /* Fade-up effect */
+        .fade-up {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+        .fade-up.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        /* Gallery and media styling to prevent download */
+        .view-only-media img,
+        .view-only-media video {
+            pointer-events: none;
+        }
+
+        /* Footer styling */
+        footer a {
+            color: rgba(255, 255, 255, 0.75);
+            text-decoration: none;
+        }
+        footer a:hover {
+            color: var(--white-color);
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .hero-section {
+                height: 400px; /* Further reduced for mobile */
+                padding: 2rem 0;
+            }
+            .hero-text h1 {
+                font-size: 2rem;
+            }
+            .hero-text p {
+                font-size: 1rem;
+            }
+            .navbar-nav {
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar navbar-expand-lg navbar-light bg-white sticky-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">IRC</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarNav">
+                <ul class="navbar-nav">
+                    <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#announcements">Announcements</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <section id="home" class="hero-section">
+        <div class="hero-slideshow">
+            <div class="hero-slide">
+                <img src="https://via.placeholder.com/1920x1080?text=Halqatu+Ibadurrahman" alt="Halqatu Ibadurrahman">
+            </div>
+            <div class="hero-slide">
+                <img src="https://via.placeholder.com/1920x1080?text=Ibadurrahman+College" alt="Ibadurrahman College">
+            </div>
+            <div class="hero-slide">
+                <img src="https://via.placeholder.com/1920x1080?text=Holistic+Education" alt="Holistic Education">
+            </div>
+        </div>
+        <div class="hero-content">
+            <div class="hero-text">
+                <h1 class="display-4 fw-bold">Halqatu Ibadurrahman</h1>
+                <p class="lead">Mastering Tahfiz and Islamic Studies with devotion.</p>
+            </div>
+            <div class="hero-text">
+                <h1 class="display-4 fw-bold">Ibadurrahman College</h1>
+                <p class="lead">Excellence in Western education for future leaders.</p>
+            </div>
+            <div class="hero-text">
+                <h1 class="display-4 fw-bold">A Unified Vision</h1>
+                <p class="lead">Blending faith and knowledge for holistic growth.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="portals" class="py-5">
+        <div class="container fade-up">
+            <h2 class="text-center mb-5">Select a Section</h2>
+            <div class="row g-4 justify-content-center">
+                <div class="col-md-5">
+                    <a href="http://www.hir.com.ng" class="card portal-card shadow-sm p-4 text-center">
+                        <h3 class="card-title fw-bold text-primary">Halqatu Ibadurrahman</h3>
+                        <p class="card-text text-muted">Tahfiz & Islamic Studies Portal</p>
+                    </a>
+                </div>
+                <div class="col-md-5">
+                    <a href="http://www.irw.com.ng" class="card portal-card shadow-sm p-4 text-center">
+                        <h3 class="card-title fw-bold text-primary">Ibadurrahman College</h3>
+                        <p class="card-text text-muted">Western Education Portal</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="about" class="py-5 bg-white">
+        <div class="container fade-up">
+            <h2 class="text-center mb-4">About Ibadurrahman College</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8 text-center">
+                    <p class="lead">Ibadurrahman College and Halqatu Ibadurrahman together form a premier institution dedicated to nurturing well-rounded individuals through a unique blend of Western education and Tahfiz & Islamic Studies.</p>
+                    <p>Halqatu Ibadurrahman focuses on deepening students' understanding of the Quran and Islamic principles, fostering spiritual growth and moral integrity. Meanwhile, Ibadurrahman College provides a robust Western education, equipping students with academic skills to excel in a globalized world. Our mission is to create leaders who are grounded in faith and empowered by knowledge.</p>
+                </div>
+            </div>
+            <div class="row mt-5 justify-content-center fade-up">
+                <div class="col-md-6 text-center">
+                    <div class="card p-4 shadow-sm">
+                        <img src="images/director.jpg" alt="Director's Photo" class="img-fluid rounded-circle mb-3 mx-auto d-block" style="width: 150px; height: 150px; object-fit: cover;">
+                        <h4 class="card-title">Director's Message</h4>
+                        <p class="card-text text-muted">"At Halqatu Ibadurrahman and Ibadurrahman College, we are committed to fostering academic excellence and spiritual growth, preparing students to lead with integrity and wisdom."</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="gallery" class="py-5">
+        <div class="container fade-up">
+            <h2 class="text-center mb-5">Gallery</h2>
+            <div class="row g-4 view-only-media">
+                <div class="col-md-6 col-lg-4">
+                    <img src="images/gallery_1.jpg" alt="Gallery Image 1" class="img-fluid rounded shadow-sm">
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <img src="images/gallery_2.jpg" alt="Gallery Image 2" class="img-fluid rounded shadow-sm">
+                </div>
+                <div class="col-md-6 col-lg-4">
+                    <video controls class="w-100 rounded shadow-sm">
+                        <source src="videos/video_1.mp4" type="video/mp4">
+                    </video>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="announcements" class="py-5 bg-white">
+        <div class="container fade-up">
+            <h2 class="text-center mb-4">Announcements</h2>
+            <div class="card p-4 shadow-sm">
+                <p class="mb-0 text-muted"><strong>[Date] - Important Notice:</strong> This is a sample announcement for important tips and updates. Check back regularly!</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="admission" class="py-5">
+        <div class="container fade-up">
+            <h2 class="text-center mb-4">Book for Admission (Halqatu Ibadurrahman)</h2>
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <form class="p-4 rounded shadow-sm bg-white">
+                        <div class="mb-3">
+                            <label for="name" class="form-label">Your Name</label>
+                            <input type="text" class="form-control" id="name" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="email" class="form-label">Your Email</label>
+                            <input type="email" class="form-control" id="email" required>
+                        </div>
+                        <div class="mb-3">
+                            <label for="message" class="form-label">Your Message</label>
+                            <textarea class="form-control" id="message" rows="4"></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary w-100">Submit</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer id="contact" class="bg-dark text-white py-5">
+        <div class="container">
+            <div class="row g-4">
+                <div class="col-md-4">
+                    <h5 class="fw-bold">Quick Links</h5>
+                    <ul class="list-unstyled">
+                        <li><a href="#about" class="text-white-50 text-decoration-none">About Us</a></li>
+                        <li><a href="#gallery" class="text-white-50 text-decoration-none">Gallery</a></li>
+                        <li><a href="http://www.hir.com.ng/admission" class="text-white-50 text-decoration-none">Book for Admission</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="fw-bold">Contact Details</h5>
+                    <ul class="list-unstyled">
+                        <li><i class="fas fa-map-marker-alt me-2"></i> Address: [Your School Address]</li>
+                        <li><i class="fas fa-envelope me-2"></i> Email: info@irc.com.ng</li>
+                        <li><i class="fas fa-phone me-2"></i> Phone: [Your Phone Number]</li>
+                    </ul>
+                </div>
+                <div class="col-md-4">
+                    <h5 class="fw-bold">Follow Us</h5>
+                    <a href="#" class="text-white me-2"><i class="fab fa-facebook-f fa-2x"></i></a>
+                    <a href="#" class="text-white me-2"><i class="fab fa-twitter fa-2x"></i></a>
+                    <a href="#" class="text-white"><i class="fab fa-instagram fa-2x"></i></a>
+                </div>
+            </div>
+            <hr class="my-4">
+            <div class="text-center">
+                <small>&copy; 2025 Ibadurrahman College. All Rights Reserved.</small>
+            </div>
+        </div>
+    </footer>
+
+    <a href="#" id="back-to-top" class="btn btn-primary rounded-circle" style="display: none; position: fixed; bottom: 20px; right: 20px;"><i class="fas fa-arrow-up"></i></a>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Hero Slideshow
+            const slides = document.querySelectorAll('.hero-slide');
+            const texts = document.querySelectorAll('.hero-text');
+            let currentSlide = 0;
+
+            function showSlide(index) {
+                slides.forEach((slide, i) => {
+                    slide.classList.toggle('active', i === index);
+                });
+                texts.forEach((text, i) => {
+                    text.classList.toggle('active', i === index);
+                });
+            }
+
+            function nextSlide() {
+                currentSlide = (currentSlide + 1) % slides.length;
+                showSlide(currentSlide);
+            }
+
+            // Initialize first slide
+            showSlide(currentSlide);
+
+            // Change slide every 5 seconds
+            setInterval(nextSlide, 5000);
+
+            // Fade-up effect on scroll
+            const observerOptions = {
+                rootMargin: '0px',
+                threshold: 0.1
+            };
+            const fadeUpObserver = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('visible');
+                        fadeUpObserver.unobserve(entry.target);
+                    }
+                });
+            }, observerOptions);
+            document.querySelectorAll('.fade-up').forEach(el => fadeUpObserver.observe(el));
+
+            // Back to Top button
+            const backToTopBtn = document.getElementById('back-to-top');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 300) {
+                    backToTopBtn.style.display = 'block';
+                } else {
+                    backToTopBtn.style.display = 'none';
+                }
+            });
+            backToTopBtn.addEventListener('click', (e) => {
+                e.preventDefault();
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+            });
+
+            // Auto-collapse navbar on link click
+            const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
+            const navbarCollapse = document.getElementById('navbarNav');
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', () => {
+                    if (navbarCollapse.classList.contains('show')) {
+                        const bsCollapse = new bootstrap.Collapse(navbarCollapse, {
+                            toggle: false
+                        });
+                        bsCollapse.hide();
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
