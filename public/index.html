@@ -198,6 +198,23 @@
                 height: 40px; /* Smaller logo for mobile */
             }
         }
+         .footer-link {
+        color: rgba(255, 255, 255, 0.7);
+        text-decoration: none;
+        transition: color 0.3s ease;
+    }
+    .footer-link:hover {
+        color: #ffffff;
+        text-decoration: underline;
+    }
+    .social-link {
+        color: rgba(255, 255, 255, 0.7);
+        margin-right: 12px;
+        transition: color 0.3s ease;
+    }
+    .social-link:hover {
+        color: #0d6efd; /* Bootstrap primary blue */
+    }
     </style>
 </head>
 <body>
@@ -388,38 +405,61 @@
     </div>
 </section>
     <footer id="contact" class="bg-dark text-white py-5">
-        <div class="container">
-            <div class="row g-4">
-                <div class="col-md-4">
-                    <h5 class="fw-bold">Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="#about" class="text-white-50 text-decoration-none">About Us</a></li>
-                        <li><a href="#gallery" class="text-white-50 text-decoration-none">Gallery</a></li>
-                        <li><a href="http://www.hir.com.ng/admission" class="text-white-50 text-decoration-none">Book for Admission</a></li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h5 class="fw-bold">Contact Details</h5>
-                    <ul class="list-unstyled">
-                        <li><i class="fas fa-map-marker-alt me-2"></i> Address: [Your School Address]</li>
-                        <li><i class="fas fa-envelope me-2"></i> Email: info@irc.com.ng</li>
-                        <li><i class="fas fa-phone me-2"></i> Phone: [Your Phone Number]</li>
-                    </ul>
-                </div>
-                <div class="col-md-4">
-                    <h5 class="fw-bold">Follow Us</h5>
-                    <a href="#" class="text-white me-2"><i class="fab fa-facebook-f fa-2x"></i></a>
-                    <a href="#" class="text-white me-2"><i class="fab fa-twitter fa-2x"></i></a>
-                    <a href="#" class="text-white"><i class="fab fa-instagram fa-2x"></i></a>
-                </div>
+    <div class="container">
+        <div class="row g-4">
+            <!-- Quick Links -->
+            <div class="col-md-4">
+                <h5 class="fw-bold">Quick Links</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#about" class="footer-link">About Us</a></li>
+                    <li><a href="#gallery" class="footer-link">Gallery</a></li>
+                    <li><a href="http://www.hir.com.ng/admission" class="footer-link">Book for Admission</a></li>
+                </ul>
             </div>
-            <hr class="my-4">
-            <div class="text-center">
-                <small>&copy; 2025 Ibadurrahman College. All Rights Reserved.</small>
+
+            <!-- Contact Details -->
+            <div class="col-md-4">
+                <h5 class="fw-bold">Contact Details</h5>
+                <ul class="list-unstyled">
+                    <li>
+                        <a href="https://www.google.com/maps/search/?api=1&query=NO.1364+Gwammaja+B+Masallacin+Abdullahi+bin+Abbas+Dala+LGA+Kano+State" 
+                           target="_blank" class="footer-link">
+                            <i class="fas fa-map-marker-alt me-2"></i>
+                            NO.1364 Gwammaja B<br>Masallacin Abdullahi bin Abbas<br>Dala LGA, Kano State
+                        </a>
+                    </li>
+                    <li>
+                        <a href="mailto:info@irc.com.ng" class="footer-link">
+                            <i class="fas fa-envelope me-2"></i>
+                            info@irc.com.ng
+                        </a>
+                    </li>
+                    <li>
+                        <a href="tel:08033459721" class="footer-link">
+                            <i class="fas fa-phone me-2"></i>
+                            08033459721
+                        </a>,
+                        <a href="tel:09062171496" class="footer-link">
+                            09062171496
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Social Media -->
+            <div class="col-md-4">
+                <h5 class="fw-bold">Follow Us</h5>
+                <a href="#" class="social-link"><i class="fab fa-facebook-f fa-2x"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter fa-2x"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram fa-2x"></i></a>
             </div>
         </div>
-    </footer>
-
+        <hr class="my-4">
+        <div class="text-center">
+            <small>&copy; 2025 Ibadurrahman College. All Rights Reserved.</small>
+        </div>
+    </div>
+</footer>
     <a href="#" id="back-to-top" class="btn btn-primary rounded-circle" style="display: none; position: fixed; bottom: 20px; right: 20px;"><i class="fas fa-arrow-up"></i></a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
