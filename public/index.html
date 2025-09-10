@@ -215,6 +215,12 @@
     .social-link:hover {
         color: #0d6efd; /* Bootstrap primary blue */
     }
+        .gallery-item {
+        height: 270px; /* adjust as needed */
+        object-fit: cover;
+        width: 100%;
+    }
+
     </style>
 </head>
 <body>
@@ -231,6 +237,7 @@
                 <ul class="navbar-nav">
                     <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
                     <li class="nav-item"><a class="nav-link" href="#gallery">Gallery</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#admission">Book Admission</a></li>
                     <li class="nav-item"><a class="nav-link" href="#announcements">Announcements</a></li>
                     <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
                 </ul>
@@ -241,13 +248,13 @@
     <section id="home" class="hero-section">
         <div class="hero-slideshow">
             <div class="hero-slide">
-                <img src="./assets/images/logo.png" alt="Halqatu Ibadurrahman">
+                <img src="./assets/images/hero.jpg" alt="Halqatu Ibadurrahman">
             </div>
             <div class="hero-slide">
-                <img src="./assets/images/hero1.jfif" alt="Ibadurrahman College">
+                <img src="./assets/images/logo.png" alt="Ibadurrahman College">
             </div>
             <div class="hero-slide">
-                <img src="./assets/images/logo.png" alt="Holistic Education">
+                <img src="./assets/images/image1.png" alt="Holistic Education">
             </div>
         </div>
         <div class="hero-content">
@@ -266,25 +273,39 @@
         </div>
     </section>
 
-    <section id="portals" class="py-5">
-        <div class="container fade-up">
-            <h2 class="text-center mb-5">Select a Section</h2>
-            <div class="row g-4 justify-content-center">
-                <div class="col-md-5">
-                    <a href="http://www.hir.com.ng" class="card portal-card shadow-sm p-4 text-center">
-                        <h3 class="card-title fw-bold text-primary">Halqatu Ibadurrahman</h3>
-                        <p class="card-text text-muted">Tahfiz & Islamic Studies Portal</p>
-                    </a>
-                </div>
-                <div class="col-md-5">
-                    <a href="http://www.irw.com.ng" class="card portal-card shadow-sm p-4 text-center">
-                        <h3 class="card-title fw-bold text-primary">Ibadurrahman College</h3>
-                        <p class="card-text text-muted">Western Education Portal</p>
-                    </a>
-                </div>
+   <section id="portals" class="py-5">
+    <div class="container fade-up">
+        <h2 class="text-center mb-5">Select a Section</h2>
+        <div class="row g-4 justify-content-center">
+            
+            <!-- Halqatu -->
+            <div class="col-md-4">
+                <a href="http://www.hir.com.ng" class="card portal-card shadow-sm p-4 text-center h-100">
+                    <h3 class="card-title fw-bold text-primary">Halqatu Ibadurrahman Litahfizul Qur'an</h3>
+                    <p class="card-text text-muted">Tahfiz Portal</p>
+                </a>
             </div>
+
+            <!-- Western Education -->
+            <div class="col-md-4">
+                <a href="http://www.irw.com.ng" class="card portal-card shadow-sm p-4 text-center h-100">
+                    <h3 class="card-title fw-bold text-primary">Ibadurrahman College</h3>
+                    <p class="card-text text-muted">Western Education Portal</p>
+                </a>
+            </div>
+
+            <!-- Islamic Education -->
+            <div class="col-md-4">
+                <a href="http://www.ii.com.ng" class="card portal-card shadow-sm p-4 text-center h-100">
+                    <h3 class="card-title fw-bold text-primary">Ibadurrahman Islamiyya</h3>
+                    <p class="card-text text-muted">Islamic Education Portal</p>
+                </a>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
+
 
     <section id="about" class="py-5 bg-white">
         <div class="container fade-up">
@@ -307,34 +328,54 @@
             </div>
         </div>
     </section>
+<section id="gallery" class="py-5">
+    <div class="container fade-up">
+        <h2 class="text-center mb-5">Gallery</h2>
 
-    <section id="gallery" class="py-5">
-        <div class="container fade-up">
-            <h2 class="text-center mb-5">Gallery</h2>
-            <div class="row g-4 view-only-media">
-                <div class="col-md-6 col-lg-4">
-                    <img src="images/gallery_1.jpg" alt="Gallery Image 1" class="img-fluid rounded shadow-sm">
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <img src="images/gallery_2.jpg" alt="Gallery Image 2" class="img-fluid rounded shadow-sm">
-                </div>
-                <div class="col-md-6 col-lg-4">
-                    <video controls class="w-100 rounded shadow-sm">
-                        <source src="videos/video_1.mp4" type="video/mp4">
-                    </video>
-                </div>
+        <!-- Pictures Section -->
+        <h4 class="mb-4">📸 Pictures</h4>
+        <div class="row g-4">
+            <div class="col-6 col-md-4">
+                <img src="./assets/images/image5.jpg" alt="Gallery " class="img-fluid rounded shadow-sm gallery-item">
+            </div>
+            <div class="col-6 col-md-4">
+                <img src="./assets/images/image2.jpeg" alt="Gallery Image 2" class="img-fluid rounded shadow-sm gallery-item">
+            </div>
+            <div class="col-6 col-md-4">
+                <img src="./assets/images/image3.jpeg" alt="Gallery Image 3" class="img-fluid rounded shadow-sm gallery-item">
+            </div>
+            <div class="col-6 col-md-4">
+                <img src="./assets/images/image4.jpeg" alt="Gallery Image 4" class="img-fluid rounded shadow-sm gallery-item">
             </div>
         </div>
-    </section>
 
-  <section id="announcements" class="py-5 bg-white">
-    <div class="container fade-up">
-        <h2 class="text-center mb-4">Announcements</h2>
-        <div class="card p-4 shadow-sm">
-            <p class="mb-0 text-muted"><strong>September 10, 2025 - Important Notice:</strong> Ibadurrahman College is excited to announce new initiatives to enhance our educational programs. Additionally, the results for the ongoing Qur'an memorizers will be released soon. Stay tuned for more updates!</p>
+        <!-- Videos Section -->
+        <h4 class="mt-5 mb-4">🎥 Videos</h4>
+        <div class="row g-4">
+            <div class="col-6 col-md-4">
+                <video controls class="rounded shadow-sm gallery-item">
+                    <source src="./assets/videos/video1.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="col-6 col-md-4">
+                <video controls class="rounded shadow-sm gallery-item">
+                    <source src="./assets/videos/video2.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="col-6 col-md-4">
+                <video controls class="rounded shadow-sm gallery-item">
+                    <source src="./assets/videos/video3.mp4" type="video/mp4">
+                </video>
+            </div>
+            <div class="col-6 col-md-4">
+                <video controls class="rounded shadow-sm gallery-item">
+                    <source src="./assets/videos/video4.mp4" type="video/mp4">
+                </video>
+            </div>
         </div>
     </div>
 </section>
+
     <section id="admission" class="py-5">
     <div class="container fade-up">
         <h2 class="text-center mb-4">Book for Tahfiz Admission (Halqatu Ibadurrahman)</h2>
@@ -423,10 +464,12 @@
                 <h5 class="fw-bold">Contact Details</h5>
                 <ul class="list-unstyled">
                     <li>
-                        <a href="https://www.google.com/maps/search/?api=1&query=NO.1364+Gwammaja+B+Masallacin+Abdullahi+bin+Abbas+Dala+LGA+Kano+State" 
+                        <a href="https://www.google.com/maps/search/?api=1&query=No.+1968+A,+Gwammaja+Housing+Estate,+Audu+Wawu+Street,+opp.+IHYA'USSUNNAH+JUMA'A+MOSQUE,+Dala+L.G.A,+Kano,+Nigeria" 
                            target="_blank" class="footer-link">
                             <i class="fas fa-map-marker-alt me-2"></i>
-                            NO.1364 Gwammaja B<br>Masallacin Abdullahi bin Abbas<br>Dala LGA, Kano State
+                            No. 1968 A, Gwammaja Housing Estate,<br>
+                            Audu Wawu Street, opp. IHYA'USSUNNAH JUMA'A MOSQUE,<br>
+                            Dala L.G.A, Kano State, Nigeria
                         </a>
                     </li>
                     <li>
@@ -461,6 +504,7 @@
         </div>
     </div>
 </footer>
+
     <a href="#" id="back-to-top" class="btn btn-primary rounded-circle" style="display: none; position: fixed; bottom: 20px; right: 20px;"><i class="fas fa-arrow-up"></i></a>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
